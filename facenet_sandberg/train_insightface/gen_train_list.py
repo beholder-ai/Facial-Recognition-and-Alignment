@@ -4,10 +4,6 @@ from __future__ import print_function
 import argparse
 import os
 import random
-import sys
-
-import numpy as np
-from tinytag import TinyTag
 
 
 def gen_balanced(voxceleb2_dir, output_dir, max_per_class=-1e5):

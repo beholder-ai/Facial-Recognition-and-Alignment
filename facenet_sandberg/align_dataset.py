@@ -10,7 +10,7 @@ from typing import List, Optional, Tuple, cast
 import cv2
 import progressbar as pb
 import tensorflow as tf
-from pathos.multiprocessing import ProcessPool
+from multiprocessing import Pool
 
 from facenet_sandberg.common_types import Face, FacesGenerator, PersonClass
 from facenet_sandberg.inference import align, facenet_encoder
@@ -56,7 +56,7 @@ def align_dataset(config_file: str):
     if num_processes == -1:
         num_processes = os.cpu_count()
     if num_processes > 1:
-        process_pool = ProcessPool(num_processes)
+        process_pool = Pool(num_processes)
         process_pool.imap(
             align_person, zip(
                 dataset, [config] * len(dataset)))

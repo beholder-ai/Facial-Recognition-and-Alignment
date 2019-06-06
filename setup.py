@@ -14,19 +14,10 @@ setup(
     install_requires=[
         'tensorflow',
         'scipy',
-        'docker',
         'scikit-learn',
         'opencv-python',
         'h5py',
-        'matplotlib',
         'Pillow',
-        'requests',
-        'psutil',
-        'progressbar2',
         'mtcnn',
-        'pathos',
-        'dask',
-        'tensorlayer',
-        'torch',
-        'torchvision',
-        'tensorboardX'])
+        'tensorlayer'
+    ])

@@ -30,14 +30,6 @@ from facenet_sandberg import download_and_extract  # @UnresolvedImport
 import subprocess
 
 
-def memory_usage_psutil():
-    # return the memory usage in MB
-    import psutil
-    process = psutil.Process(os.getpid())
-    mem = process.memory_info()[0] / float(2 ** 20)
-    return mem
-
-
 def align_dataset_if_needed(self):
     if not os.path.exists('data/lfw_aligned'):
         argv = ['python',
@@ -71,9 +63,6 @@ class TrainTest(unittest.TestCase):
             'data', self.pretrained_model_name)
         self.frozen_graph_filename = os.path.join(
             'data', self.pretrained_model_name + '.pb')
-        print(
-            'Memory utilization (SetUpClass): %.3f MB' %
-            memory_usage_psutil())
 
     @classmethod
     def tearDownClass(self):
@@ -81,7 +70,7 @@ class TrainTest(unittest.TestCase):
         shutil.rmtree(self.tmp_dir)
 
     def tearDown(self):
-        print('Memory utilization (TearDown): %.3f MB' % memory_usage_psutil())
+        pass
 
     def test_training_classifier_inception_resnet_v1(self):
         print('test_training_classifier_inception_resnet_v1')
