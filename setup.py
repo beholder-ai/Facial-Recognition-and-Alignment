@@ -18,6 +18,7 @@ setup(
         'opencv-python',
         'h5py',
         'Pillow',
+        'progressbar2',
         'mtcnn',
         'tensorlayer'
     ])
